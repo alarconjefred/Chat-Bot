@@ -1,0 +1,88 @@
+.instructors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+}
+
+.instructor-card {
+  background-color: var(--color-surface-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  transition: all var(--transition-normal);
+}
+
+.instructor-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.instructor-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.instructor-photo {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-green-100);
+}
+
+.instructor-name {
+  font-size: 1.25rem;
+  margin-bottom: 0;
+}
+
+.instructor-role {
+  color: var(--color-green-600);
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.instructor-bio {
+  font-size: 0.9375rem;
+  margin-bottom: var(--space-3);
+  line-height: 1.6;
+}
+
+.instructor-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-bottom: var(--space-4);
+}
+
+.skill-badge {
+  background-color: var(--color-surface);
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+}
+
+.instructor-footer {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-3);
+}
+
+.instructor-links {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.instructor-links a {
+  color: var(--color-blue-600);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.instructor-links a:hover {
+  text-decoration: underline;
+}

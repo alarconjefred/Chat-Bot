@@ -1,0 +1,15 @@
+{
+  "name": "landing-cursos-ia",
+  "version": "1.0.0",
+  "description": "Landing page de cursos de IA y Chatbot con Gemini",
+  "type": "module",
+  "scripts": {
+    "dev": "node --env-file=.env server/server.js",
+    "start": "node --env-file=.env server/server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "author": "Jefred Alarcon",
+  "license": "MIT"
+}

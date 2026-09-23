@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academia IA | Cursos de Inteligencia Artificial</title>
+  <meta name="description" content="Aprende Inteligencia Artificial, Machine Learning y Deep Learning con nuestros cursos especializados.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/base/variables.css">
+  <link rel="stylesheet" href="/css/base/reset.css">
+  <link rel="stylesheet" href="/css/base/typography.css">
+  <link rel="stylesheet" href="/css/layout/shell.css">
+  <link rel="stylesheet" href="/css/layout/sidebar.css">
+  <!-- Dynamic components and pages CSS will be imported or added here if needed, or injected via JS -->
+</head>
+<body>
+  
+  <!-- Mobile Header -->
+  <header class="mobile-header">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-icon">IA</div>
+      Academia IA
+    </div>
+    <button id="mobile-menu-btn" class="menu-toggle" aria-label="Abrir menú">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+  </header>
+
+  <div id="app-container">
+    <!-- Sidebar Overlay -->
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+    
+    <!-- Sidebar container -->
+    <div id="sidebar-container" class="sidebar-wrapper"></div>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <div id="view-container">
+        <!-- Route views will be injected here -->
+      </div>
+    </main>
+  </div>
+  
+  <!-- Chatbot Widget Container -->
+  <div id="chat-widget-container"></div>
+
+  <!-- Main JS Module -->
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>

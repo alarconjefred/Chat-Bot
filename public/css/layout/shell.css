@@ -1,0 +1,72 @@
+#app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar Wrapper */
+.sidebar-wrapper {
+  width: var(--sidebar-width);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 40;
+}
+
+/* Main Content Area */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* Prevents flex flex-child from overflowing */
+  background-color: var(--color-surface);
+  position: relative;
+}
+
+/* Internal view container */
+#view-container {
+  flex: 1;
+  padding: var(--space-5);
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Mobile overlay */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 30;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+/* Responsive Rules */
+@media (max-width: 900px) {
+  .sidebar-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform: translateX(-100%);
+    transition: transform var(--transition-normal);
+  }
+  
+  .sidebar-wrapper.is-open {
+    transform: translateX(0);
+  }
+  
+  .sidebar-overlay.is-open {
+    display: block;
+    opacity: 1;
+  }
+  
+  .main-content {
+    padding-top: 60px; /* Space for mobile header */
+  }
+  
+  #view-container {
+    padding: var(--space-3);
+  }
+}
