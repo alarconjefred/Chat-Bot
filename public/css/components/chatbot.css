@@ -19,10 +19,14 @@
   justify-content: center;
   box-shadow: var(--shadow-lg);
   color: white;
-  transition: transform var(--transition-fast);
+  background-color: var(--color-green-500);
+  border: none;
+  cursor: pointer;
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
 }
 
 .chat-widget-toggle:hover {
+  background-color: var(--color-green-600);
   transform: scale(1.05);
 }
 
@@ -242,7 +246,14 @@
   align-items: center;
   justify-content: center;
   color: white;
-  transition: opacity var(--transition-fast);
+  background-color: var(--color-green-500);
+  border: none;
+  cursor: pointer;
+  transition: opacity var(--transition-fast), background-color var(--transition-fast);
+}
+
+.chat-send-btn:hover:not(:disabled) {
+  background-color: var(--color-green-600);
 }
 
 .chat-send-btn:disabled {

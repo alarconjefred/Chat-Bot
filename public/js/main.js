@@ -6,23 +6,15 @@ import HomePage from './pages/HomePage.js';
 import CoursesPage from './pages/CoursesPage.js';
 import CourseDetailPage from './pages/CourseDetailPage.js';
 import InstructorsPage from './pages/InstructorsPage.js';
+import ChatbotPage from './pages/ChatbotPage.js';
 import ContactPage from './pages/ContactPage.js';
-
-class PlaceholderPage {
-  constructor(params) { this.params = params; }
-  async render() {
-    const div = document.createElement('div');
-    div.innerHTML = `<h2>Vista en construcción</h2><p>Chatbot disponible próximamente.</p>`;
-    return div;
-  }
-}
 
 const routes = {
   '#/home': HomePage,
   '#/cursos': CoursesPage,
   '#/cursos/:id': CourseDetailPage,
   '#/instructores': InstructorsPage,
-  '#/chatbot': PlaceholderPage,
+  '#/chatbot': ChatbotPage,
   '#/contacto': ContactPage
 };
 
@@ -35,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. Initialize Mobile Menu Toggle
   const mobileBtn = document.getElementById('mobile-menu-btn');
   const sidebarOverlay = document.getElementById('sidebar-overlay');
+  const chatContainer = document.getElementById('chat-widget-container');
   
   function toggleMobileMenu() {
     sidebarContainer.classList.toggle('is-open');
@@ -44,10 +37,17 @@ document.addEventListener('DOMContentLoaded', () => {
   mobileBtn.addEventListener('click', toggleMobileMenu);
   sidebarOverlay.addEventListener('click', toggleMobileMenu);
   
-  // Close sidebar on navigation (mobile)
-  window.addEventListener('route-changed', () => {
+  // Close sidebar on navigation (mobile) & toggle floating chat widget
+  window.addEventListener('route-changed', (e) => {
     sidebarContainer.classList.remove('is-open');
     sidebarOverlay.classList.remove('is-open');
+
+    const path = e.detail?.path || window.location.hash;
+    if (path === '#/chatbot') {
+      chatContainer.style.display = 'none';
+    } else {
+      chatContainer.style.display = '';
+    }
   });
 
   // 3. Initialize Router
@@ -55,7 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
   router.init();
 
   // 4. Initialize Floating Chat Widget
-  const chatContainer = document.getElementById('chat-widget-container');
   const floatingChat = new ChatWidget(false);
   chatContainer.appendChild(floatingChat.render());
+
+  // Initial check for current route on load
+  if (window.location.hash === '#/chatbot') {
+    chatContainer.style.display = 'none';
+  }
 });
