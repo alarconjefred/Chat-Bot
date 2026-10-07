@@ -115,12 +115,12 @@ export class ChatWidget {
     this.messagesArea.innerHTML = '';
     
     this.messages.forEach(m => {
-      const bubble = createElement('div', { className: \`chat-bubble \${m.role}\` });
+      const bubble = createElement('div', { className: `chat-bubble ${m.role}` });
       
       // Simple markdown parser for bold and line breaks
       let textHTML = m.text
-        .replace(/\\*\\*(.*?)\\*\\*/g, '<strong>$1</strong>')
-        .replace(/\\n/g, '<br>');
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\n/g, '<br>');
         
       bubble.innerHTML = textHTML;
       this.messagesArea.appendChild(bubble);
