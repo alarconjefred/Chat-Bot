@@ -1,9 +1,9 @@
 import { config } from './config.js';
 
 const CANDIDATE_MODELS = [
-  config.model || 'gemini-flash-latest',
-  'gemini-flash-latest',
+  config.model,
   'gemini-3.5-flash-lite',
+  'gemini-flash-latest',
   'gemini-3.8-flash'
 ];
 
@@ -42,7 +42,8 @@ export async function generateContent({ systemInstruction, userText, contextChun
           'Content-Type': 'application/json',
           'x-goog-api-key': config.apiKey
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
+        signal: AbortSignal.timeout(6000)
       });
 
       if (!response.ok) {
