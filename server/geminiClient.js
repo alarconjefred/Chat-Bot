@@ -1,10 +1,11 @@
 import { config } from './config.js';
 
 const CANDIDATE_MODELS = [
-  config.model,
+  config.model || 'gemini-3.1-flash-lite',
+  'gemini-3.1-flash-lite',
+  'gemini-3.5-flash',
   'gemini-3.5-flash-lite',
-  'gemini-flash-latest',
-  'gemini-3.8-flash'
+  'gemini-flash-lite-latest'
 ];
 
 /**
@@ -43,7 +44,7 @@ export async function generateContent({ systemInstruction, userText, contextChun
           'x-goog-api-key': config.apiKey
         },
         body: JSON.stringify(payload),
-        signal: AbortSignal.timeout(6000)
+        signal: AbortSignal.timeout(4500)
       });
 
       if (!response.ok) {
